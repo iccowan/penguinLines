@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <link href="css.css" rel="stylesheet" type="text/css" />
+    </head>
+    
+    <body>
+        <h1>Penguin Line</h1>
+        
+        <br /><br />
+        <hr />
+        <div class="lineDiv" id="lineGraph">
+            <h2>Line Plot: Quiz Scores</h2>
+            <svg id="quiz">
+                <g class="graph"></g>
+                <g class="extra"></g>
+            </svg>
+        </div>
+        
+        <div class="hidden" id="tooltip">
+            <img id="pengImg" />
+            <p id="xdata"></p>
+            <hr />
+            <p><i>Summary:</i></p>
+            <p id="finalScore"></p>
+            <p id="avgHW"></p>
+            <p id="avgQuiz"></p>
+            <p id="avgTest"></p>
+    </body>
+    <script src="js.js"></script>
+</html>
