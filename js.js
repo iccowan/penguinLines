@@ -79,7 +79,7 @@ var lineGraph = function(students, width, height) //Final versus mean homework
         .text("Grade")
         .classed("label",true)
         .attr("text-anchor","middle")
-        .attr("transform","rotate(90)")
+        .attr("transform","rotate(-90)");
     
     var xAxis = d3.axisBottom(xScale);
     var yAxis = d3.axisLeft(yScale);
@@ -196,71 +196,6 @@ var lineGraph = function(students, width, height) //Final versus mean homework
     lines.append("path")
         .datum(function(student) { return student.quizes;} )
         .attr("d", line);
-    
-    /*
-    svg.selectAll("circle")
-        .data(students)
-        .enter()
-        .append("circle")
-        .attr("cx",function(student)
-        {
-            return xScale(meanGrade(student.homework));    
-        })
-        .attr("cy",function(student)
-        {
-            return yScale(student.final[0].grade);  
-        })
-        .attr("r",3)
-        .attr("fill","blue")
-    
-        .on("mouseover", function(student) {
-            var xPosition = parseFloat(d3.select(this).attr("cx")) + 10;
-            var yPosition = parseFloat(d3.select(this).attr("cy")) + 10;
-        
-            d3.select("#tooltip")
-                .style("left", xPosition + "px")
-                .style("top", yPosition + "px")
-                .select("#pengImg")
-                    .attr("src", "imgs/" + student.picture);
-        
-            d3.select("#tooltip").select("#ydata")
-                .text("Final: "+ student.final[0].grade);
-        
-            d3.select("#tooltip").select("#xdata")
-                .text("Mean HW: "+Math.round(meanGrade(student.homework)));
-        
-            d3.select("#tooltip #finalScore")
-                .text("Final Score: " + student.final[0].grade);
-        
-            d3.select("#tooltip #avgHW")
-                .text("HW Average: " + Math.round(meanGrade(student.homework)));
-        
-            d3.select("#tooltip #avgQuiz")
-                .text("Quiz Average: " + Math.round(meanGrade(student.quizes)));
-        
-            d3.select("#tooltip #avgTest")
-                .text("Test Average: " + Math.round(meanGrade(student.test)));
-        
-            d3.select("#tooltip").classed("hidden", false);
-                
-        }).on("mouseout", function() {
-            d3.select("#tooltip").classed("hidden", true);
-        });
-    
-    svg.append("line")
-        .attr("x1",xScale(0))
-        .attr("x2",xScale(width))
-        .attr("y1",yScale(60))
-        .attr("y2",yScale(60))
-        .attr("stroke","red");
-    
-        svg.append("line")
-        .attr("x1",xScale(30))
-        .attr("x2",xScale(30))
-        .attr("y1",yScale(height))
-        .attr("y2",yScale(0))
-        .attr("stroke","red");
-        */
 }
 
 var showScatter = function () {
@@ -277,7 +212,7 @@ var showScatter = function () {
 }
 
 // Get the penguin information
-var penguinPromise = d3.json("classData.json");
+var penguinPromise = d3.json("https://iccowan.github.io/penguinLines/classData.json");
 penguinPromise.then(function(students) {
     var width = 1600;
     var height= 500;

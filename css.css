@@ -46,3 +46,14 @@
 svg {
     float: left;
 }
+
+h2 {
+    text-align:middle;
+    font-size:50; 
+    font-family:sans-serif;
+}
+
+text{
+    font-size:20;
+    font-family:fantasy;
+}
